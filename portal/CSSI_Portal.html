@@ -348,10 +348,27 @@ let activeSheetName = null;
 let currentWb = null;
 
 const ADJ = {
-  marrero:  -52330.16,
-  grace:    -205582.84,
-  granite:  -368477.71,
+  marrero:   -52330.16,
+  grace:     -205582.84,
+  coral:     -265512.33,
+  granite:   -368477.71,
+  mace:      -220443.87,
+  grove:     -257873.54,
+  stcharles: -1762893.13,
+  fairfax:   -144997.61,
+  silver:    -427882.48,
+  river:      34580.83,
 };
+
+// Sign-aware formatter: negative 481(a) = additional deductions (favorable, green parens);
+// positive = income increase (amber, +$)
+function fmtAdj(adj, cls) {
+  if (adj === undefined || adj === null) return `<span style="color:#aaa;">—</span>`;
+  const abs = Math.abs(adj).toLocaleString('en-US',{minimumFractionDigits:2});
+  return adj < 0
+    ? `<span class="${cls||''}" style="color:var(--green);font-size:13px;font-weight:700;">($${abs})</span>`
+    : `<span class="${cls||''}" style="color:#B07D2B;font-size:13px;font-weight:700;">+$${abs}</span>`;
+}
 
 // ─────────────────────────────────────────────────────────────────
 // BUILD CARDS
@@ -359,10 +376,7 @@ const ADJ = {
 function buildCards() {
   const grid = document.getElementById('cardGrid');
   WORKBOOKS.forEach(wb => {
-    const adj = ADJ[wb.key];
-    const adjHtml = adj
-      ? `<span style="color:var(--green);font-size:13px;font-weight:700;">($${Math.abs(adj).toLocaleString('en-US',{minimumFractionDigits:2})})</span>`
-      : `<span style="color:#aaa;">—</span>`;
+    const adjHtml = fmtAdj(ADJ[wb.key]);
 
     const card = document.createElement('div');
     card.className = 'prop-card';
@@ -610,9 +624,7 @@ function buildTable() {
   WORKBOOKS.forEach(wb => {
     const adj = ADJ[wb.key];
     if (adj) totalAdj += adj;
-    const adjHtml = adj
-      ? `<span class="adj-negative">($${Math.abs(adj).toLocaleString('en-US',{minimumFractionDigits:2})})</span>`
-      : `<span style="color:#aaa">N/A</span>`;
+    const adjHtml = fmtAdj(adj, 'adj-negative');
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><strong>${wb.name}</strong><br><span style="font-size:10px;color:var(--mist)">${wb.entity}</span></td>
@@ -627,7 +639,8 @@ function buildTable() {
       </div></td>`;
     tbody.appendChild(tr);
   });
-  document.getElementById('totalAdj').textContent = '($' + Math.abs(totalAdj).toLocaleString('en-US',{minimumFractionDigits:2}) + ')';
+  const totAbs = Math.abs(totalAdj).toLocaleString('en-US',{minimumFractionDigits:2});
+  document.getElementById('totalAdj').textContent = totalAdj < 0 ? '($' + totAbs + ')' : '+$' + totAbs;
 }
 
 // ─────────────────────────────────────────────────────────────────
