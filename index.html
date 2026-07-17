@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Cost Segregation · Form 3115 Workbooks — CSSI Report Series #107752</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#FAFAF6; --ink:#16233A; --rule:#C9CCC2; --graphite:#5A6372;
+  --ledger:#1E5C3F; --flagred:#A63A2E; --amber:#8A6A1F; --rev:#3D5A80; --card:#FFFFFF;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+body { background:var(--paper); color:var(--ink); font:400 15px/1.55 "IBM Plex Sans",system-ui,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:0 28px; }
+
+/* masthead: workpaper header block */
+header { border-bottom:3px double var(--ink); padding:40px 0 22px; }
+.eng { display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; align-items:flex-end; }
+h1 { font:600 30px/1.15 "IBM Plex Serif",serif; letter-spacing:-0.2px; max-width:620px; }
+h1 em { font-style:normal; color:var(--ledger); }
+.wp { font:400 12px/1.7 "IBM Plex Mono",monospace; color:var(--graphite); text-align:right; }
+.wp b { color:var(--ink); font-weight:500; }
+.sub { margin-top:10px; color:var(--graphite); font-size:14px; max-width:660px; }
+
+/* lead schedule */
+section { padding:34px 0 6px; }
+.slabel { font:500 11px/1 "IBM Plex Mono",monospace; letter-spacing:.14em; text-transform:uppercase; color:var(--graphite); margin-bottom:14px; }
+.slabel::after { content:""; display:block; height:1px; background:var(--rule); margin-top:10px; }
+table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--rule); }
+thead th { font:500 11px/1.3 "IBM Plex Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--graphite);
+  text-align:left; padding:12px 14px; border-bottom:1px solid var(--ink); background:var(--paper); }
+thead th.num, td.num { text-align:right; }
+td { padding:11px 14px; border-bottom:1px solid #EAEBE4; vertical-align:middle; }
+tbody tr:hover { background:#F5F6EF; }
+.mono { font-family:"IBM Plex Mono",monospace; font-size:13px; }
+.pname { display:block; font-weight:600; }
+.ent { display:block; font-size:12px; color:var(--graphite); }
+.amt { font-weight:500; color:var(--ledger); }
+.amt.pos { color:var(--flagred); }
+td.tick { width:44px; text-align:center; }
+.tk { display:inline-block; min-width:24px; padding:2px 5px; border-radius:2px; font:500 12px/1.4 "IBM Plex Mono",monospace; }
+.t-ok { color:var(--ledger); background:#E7F0EA; }
+.t-bad { color:var(--flagred); background:#F6E7E4; }
+.t-warn { color:var(--amber); background:#F4EDDC; }
+.t-rev { color:var(--rev); background:#E5EBF2; }
+.t-min { color:var(--graphite); background:#ECEDE7; }
+td.dl a { font:500 12px "IBM Plex Mono",monospace; color:var(--rev); text-decoration:none; border:1px solid var(--rule); padding:4px 9px; border-radius:2px; }
+td.dl a:hover, td.dl a:focus-visible { border-color:var(--rev); background:#E5EBF2; outline:none; }
+tfoot td { padding:14px; font-weight:600; border-top:1px solid var(--ink); box-shadow:0 3px 0 -1px var(--ink); background:var(--paper); }
+tfoot .amt { font-size:16px; }
+.footnote { font-size:12px; color:var(--graphite); margin-top:10px; }
+
+/* flags */
+.flag { display:flex; gap:16px; background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--rule); padding:16px 18px; margin-bottom:12px; }
+.flag h3 { font:600 15px/1.35 "IBM Plex Sans",sans-serif; margin-bottom:4px; }
+.flag p { font-size:13.5px; color:#3C4453; }
+.fmark { padding-top:2px; }
+
+/* downloads */
+.dlrow { display:flex; gap:14px; flex-wrap:wrap; margin:6px 0 8px; }
+.btn { display:inline-block; font:500 14px "IBM Plex Sans",sans-serif; text-decoration:none; padding:11px 20px; border-radius:2px; }
+.btn.primary { background:var(--ink); color:#fff; }
+.btn.primary:hover, .btn.primary:focus-visible { background:#0E1830; outline:2px solid var(--rev); outline-offset:2px; }
+.btn.ghost { color:var(--ink); border:1px solid var(--ink); }
+.btn.ghost:hover, .btn.ghost:focus-visible { background:#EFF0E9; outline:none; }
+
+footer { margin-top:44px; border-top:1px solid var(--rule); padding:18px 0 40px; font:400 12px/1.7 "IBM Plex Mono",monospace; color:var(--graphite); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+@media (max-width:760px) {
+  h1 { font-size:24px; }
+  .wp { text-align:left; }
+  td, thead th { padding:9px 8px; }
+  .ent, td.dl { display:none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eng">
+      <h1>Form 3115 Cost Segregation Workbooks<br><em>($3,671,412.76)</em> net §481(a) adjustment</h1>
+      <div class="wp">
+        Engagement <b>CSSI Report Series #107752</b><br>
+        Client <b>ApartmentCorp — 10-property LP portfolio</b><br>
+        Prepared <b>July 17, 2026</b> · Basis <b>FYE 12/31/2024</b><br>
+        Method <b>CAM — DCN #7 · Rev. Proc. 2024-23 §6.01</b>
+      </div>
+    </div>
+    <p class="sub">Ten workbooks rebuilt from the CSSI combined PDFs — 146 units of property, full Regular Tax and AMT schedules, live formulas throughout. Every figure below foots from the asset-level rows and is verified against each report's own summary sheet.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="slabel">Lead Schedule — §481(a) Adjustment by Property (Regular Tax = AMT)</div>
+    <table>
+      <thead><tr><th></th><th>Property</th><th>EIN</th><th>CSSI Report</th><th class="num">Units</th><th class="num">§481(a)</th><th></th></tr></thead>
+      <tbody>
+      <tr>
+<td class="tick"><span class="tk t-bad" title="CSSI summary misfoot">✗</span></td>
+<td class="prop"><span class="pname">St. Charles Housing</span><span class="ent">St Charles Housing LP</span></td>
+<td class="mono">82-5349206</td>
+<td class="mono">#107752-24</td>
+<td class="num mono">18</td>
+<td class="num mono amt ">(1,762,893.13)</td>
+<td class="dl"><a href="workbooks/StCharles_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-rev" title="Revised report used">R1</span></td>
+<td class="prop"><span class="pname">Silver Spring Terrace</span><span class="ent">Silver Springs Housing, LP</span></td>
+<td class="mono">82-0773652</td>
+<td class="mono">#107752-39 (R1)</td>
+<td class="num mono">20</td>
+<td class="num mono amt ">(427,882.48)</td>
+<td class="dl"><a href="workbooks/SilverSpring_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-ok" title="Ties to CSSI summary sheet">✓</span></td>
+<td class="prop"><span class="pname">Granite Ridge</span><span class="ent">Granite Ridge Housing LP</span></td>
+<td class="mono">81-1683638</td>
+<td class="mono">#107752-34</td>
+<td class="num mono">8</td>
+<td class="num mono amt ">(368,477.71)</td>
+<td class="dl"><a href="workbooks/GraniteRidge_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-bad" title="CSSI summary misfoot">✗</span></td>
+<td class="prop"><span class="pname">Coral Village</span><span class="ent">Coral Village Housing LP</span></td>
+<td class="mono">87-2205593</td>
+<td class="mono">#107752-01</td>
+<td class="num mono">11</td>
+<td class="num mono amt ">(265,512.33)</td>
+<td class="dl"><a href="workbooks/CoralVillage_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-ok" title="Ties to CSSI summary sheet">✓</span></td>
+<td class="prop"><span class="pname">Grove Park</span><span class="ent">Grove Park Housing, LP</span></td>
+<td class="mono">85-1924921</td>
+<td class="mono">#107752-14</td>
+<td class="num mono">8</td>
+<td class="num mono amt ">(257,873.54)</td>
+<td class="dl"><a href="workbooks/GrovePark_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-bad" title="CSSI summary misfoot">✗</span></td>
+<td class="prop"><span class="pname">Macedonia Apartments</span><span class="ent">Macedonia Apartments LLC</span></td>
+<td class="mono">27-3618924</td>
+<td class="mono">#107752-05</td>
+<td class="num mono">16</td>
+<td class="num mono amt ">(220,443.79)</td>
+<td class="dl"><a href="workbooks/Macedonia_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-min" title="Minor rounding">±</span></td>
+<td class="prop"><span class="pname">Grace Townhomes</span><span class="ent">Grace Townhomes Housing, LLC</span></td>
+<td class="mono">47-5360069</td>
+<td class="mono">#107752-11</td>
+<td class="num mono">28</td>
+<td class="num mono amt ">(205,582.84)</td>
+<td class="dl"><a href="workbooks/GraceTownhomes_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-ok" title="Ties to CSSI summary sheet">✓</span></td>
+<td class="prop"><span class="pname">Fairfax Senior Apartments</span><span class="ent">Fairfax Genesee Partners &amp; Associates LP</span></td>
+<td class="mono">11-3233403</td>
+<td class="mono">#107752-35</td>
+<td class="num mono">1</td>
+<td class="num mono amt ">(144,997.61)</td>
+<td class="dl"><a href="workbooks/Fairfax_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-min" title="Minor rounding">±</span></td>
+<td class="prop"><span class="pname">Marrero 3</span><span class="ent">Marrero 3 LP</span></td>
+<td class="mono">82-2324040</td>
+<td class="mono">#107752-18</td>
+<td class="num mono">10</td>
+<td class="num mono amt ">(52,330.16)</td>
+<td class="dl"><a href="workbooks/Marrero3_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+<tr>
+<td class="tick"><span class="tk t-warn" title="Missing page; YOC review">▲</span></td>
+<td class="prop"><span class="pname">River Garden Estates</span><span class="ent">River Garden Estates Housing LP</span></td>
+<td class="mono">93-2096487</td>
+<td class="mono">#107552-43</td>
+<td class="num mono">26</td>
+<td class="num mono amt pos">34,580.83</td>
+<td class="dl"><a href="workbooks/RiverGarden_CostSeg_3115_Format.xlsx" download>.xlsx</a></td>
+</tr>
+      </tbody>
+      <tfoot><tr><td></td><td>Portfolio net §481(a) adjustment</td><td></td><td></td><td class="num mono">146</td><td class="num mono amt">(3,671,412.76)</td><td></td></tr></tfoot>
+    </table>
+    <p class="footnote">Amounts in parentheses are negative adjustments (additional deductions). River Garden's positive adjustment is an income increase per CSSI's schedules. Tickmarks: ✓ ties to CSSI summary sheet · ✗ CSSI summary misfoot (see flags) · ▲ review item · R1 revised report · ± minor rounding.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slabel">Review Flags — CSSI Report Discrepancies</div>
+    <div class="flag"><div class="fmark {'✗':'t-bad','▲':'t-warn','R1':'t-rev','±':'t-min'}"><span class="tk t-bad">✗</span></div>
+<div class="fbody"><h3>St. Charles — summary sheet does not foot</h3><p>CSSI&#x27;s summary sheet prints a total of (1,101,219.87), but its own 18 line items sum to (1,762,893.13) — a difference of $661,673.26 in deductions. Every unit schedule is internally consistent; only the printed total is wrong. Workbook foots from the asset rows.</p></div></div>
+<div class="flag"><div class="fmark {'✗':'t-bad','▲':'t-warn','R1':'t-rev','±':'t-min'}"><span class="tk t-bad">✗</span></div>
+<div class="fbody"><h3>Macedonia — summary sheet does not foot</h3><p>Printed total (148,277.87) vs. line items that sum to (220,443.87). Workbook foots row-true to (220,443.79); the remaining $0.08 is penny rounding inside CSSI&#x27;s own Grand Total lines, disclosed in the workbook notes.</p></div></div>
+<div class="flag"><div class="fmark {'✗':'t-bad','▲':'t-warn','R1':'t-rev','±':'t-min'}"><span class="tk t-bad">✗</span></div>
+<div class="fbody"><h3>Coral Village — Office unit excluded from printed total</h3><p>The summary sheet lists an Office unit at +11,625.28 (with no EIN shown) but the printed total of (277,137.61) excludes it. All eleven listed units sum to (265,512.33), which is what the workbook uses. Confirm with CSSI whether Office is in or out of the filing.</p></div></div>
+<div class="flag"><div class="fmark {'✗':'t-bad','▲':'t-warn','R1':'t-rev','±':'t-min'}"><span class="tk t-warn">▲</span></div>
+<div class="fbody"><h3>River Garden — Building 15 Regular Tax page missing</h3><p>The PDF contains a duplicate of Building 16&#x27;s Regular Tax page where Building 15&#x27;s should be. Building 15&#x27;s AMT schedule exists and ties to the summary sheet (22,947.08); it is used for both sides, flagged in red on that tab.</p></div></div>
+<div class="flag"><div class="fmark {'✗':'t-bad','▲':'t-warn','R1':'t-rev','±':'t-min'}"><span class="tk t-warn">▲</span></div>
+<div class="fbody"><h3>Year of change — 1/1/2024 vs 1/1/2025</h3><p>Every Form 3115 face page states a tax year of change beginning 1/1/2025, while the attached statements and all 481(a) schedules say 1/1/2024 (FYE 12/31/2024). CSSI&#x27;s cover letter references the 2025 tax return. Preparer to confirm the intended year of change before filing; noted on every workbook Summary.</p></div></div>
+<div class="flag"><div class="fmark {'✗':'t-bad','▲':'t-warn','R1':'t-rev','±':'t-min'}"><span class="tk t-rev">R1</span></div>
+<div class="fbody"><h3>Silver Springs — revised report (R1) used</h3><p>The original combined PDF states a total of (259,107); the R1 revision states (427,882.48). The workbook is built from R1 and ties to it exactly.</p></div></div>
+<div class="flag"><div class="fmark {'✗':'t-bad','▲':'t-warn','R1':'t-rev','±':'t-min'}"><span class="tk t-min">±</span></div>
+<div class="fbody"><h3>Minor rounding variances (transcribed verbatim)</h3><p>Grace Townhomes: five buildings carry a 2¢ before/after cost variance in CSSI&#x27;s Grand Total lines. Marrero 3: two $1.00 variances. Macedonia: penny rounding between CSSI&#x27;s Grand Totals and their own rows. All disclosed in the affected workbook notes.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slabel">Downloads</div>
+    <div class="dlrow">
+      <a class="btn primary" href="CostSeg_3115_Workbooks_All10.zip" download>Download all ten workbooks (.zip, ~1 MB)</a>
+      <a class="btn ghost" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Individual files are linked in the schedule above</a>
+    </div>
+    <p class="footnote">Each workbook: accountant matrix Summary (units in columns; original cost, MACRS reclassification, end-depreciation reconciliation, §481(a) row) plus per-unit tabs with As-Previously-Filed / After-Correction schedules for Regular Tax and AMT, cost summary, cost detail, and asset allocation. Difference and Check rows are live and must remain zero after any edit.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:0;">
+    <span>Internal Use Only · Confidential — prepared for tax-preparer review; not a filing document</span>
+    <span>Source PDFs: CSSI combined 3115 reports · draft copies per CSSI letter</span>
+  </div>
+</footer>
+</body>
+</html>
